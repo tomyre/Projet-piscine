@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enchérir</title>
+	<meta charset="utf-8">
+
+	<!--charger bootstrap-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet"
+ 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+
+	<!-- appeler la partie CSS-->
+	<link rel="stylesheet" type="text/css" href="styles_enchérir.css">
+
+	<!--sert au backgroung-->
+	<script type="text/javascript">
+ 		$(document).ready(function(){
+ 		$('.header').height($(window).height());
+		 });
+	</script>
+
+</head>
+
+<body>
+
+	<!--barre de navigation en haut de la page-->
+	<nav class="navbar navbar-expand-md">
+ 		<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+ 			<span class="navbar-toggler-icon"></span>
+ 		</button>
+ 		<div class="collapse navbar-collapse" id="main-navigation">
+ 			<ul class="navbar-nav">
+ 				<li class="nav-item"><a class="nav-link" href="#">Accueil</a></li> <!-- permet de revenir à la page d'acceuil-->
+ 			</ul>
+		</div>
+	</nav>
+
+
+	<!--conteneur de la page-->
+	<header class="page-header header container-fluid">
+
+		<!--superposition txt/background-->
+		<div class="overlay"></div>
+		<div class="description">
+			<form>
+				<table>
+					<tr>
+						<h1>Veuillez entrer la montant maximal de votre enchère : </h>
+						<td><input type="number" id="firstNumber"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+	</header>
+
+</body>
+
+</html>
