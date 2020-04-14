@@ -1,0 +1,16 @@
+WSH LA ZONE
+
+# Projet-piscine
+
+1 menu avec :
+- categories: menu deroulant sur le coté gauche avec les 3 categories Ferraille/tresor;Bon pour Musée; Accessoire VIP
+- achat: 
+    Enchere: un article est choisi et mis en avant durant 4 jours ( decompte à coder) on clique sur enrecherir où l'on rentre la valeur maximun que l'on veut payer (= on recupere la valeur puis on l'a met dans un tableau). Puis on compare le prix actuelle avec le prix d'enchere max et si il est inferieur on demande de rajouter 1euros pour devenir la plus gros offre
+    Acheter maintenant : sur une liste d'objet on rajoute un bouton "achetez " qui proposera de payer directement le prix indiqué en rentrant les informations necesaires au paiement.
+    Meilleur offre : un autre bouton negociation , on propose un prix et le vendeur decide si il accepte ou non ( prosessuc repetable 5fois max) on pourrait réaliser une fonction aleatoire où en focntion du prix la probabilité que la negociation aboutissent varie 
+- Panier : lié au compte de l'acheteur 
+- Votre compte : menu ou l'on va devoir se connecter avec formulaire (admin vendeur ou acheteur
+     Admin: compte de l'administrateur, il peut ajouter ou supprimer des items sur le     marche via la base de données, chaque item aura son numero d'ID, son nom, une photo,ses descriptions,sa vidéo et son prix. Chaque item à une categorie feraille/tresor, bon pour le musee, accessoire VIP ( 3 tables ou une seule?)
+     Vendeurs: se connecte via pseudo et email avec verification si valide, affichage nom, photo, image de fond sur le mur du site, il pourra vendre un produit(definit par ID,nom,photo,descriptions,video,categorie,prix lié a la base de donnée) de plus choix de la vente ( enchere, meilleur offre ou achat) pas de doubles categorie possible
+     Acheteur: il peut acceder à son compte en retrant son email et son MDP (  il sera defini par la suite par nom, prenom,adresse,email et paiement), si adresse mail non reconnnue on ajoute à la base de données se nouveau client, accepter une clause sur l'obligation d'achat quand il se connecte,panier affiché avec petite image en haut à droite ous e trouve toutes les transactions en cours avec image prix et descriptif et sous total en euros affiché, une fois le panier validé fenetre avec informations à remplir (nom,prenom,adresse ligne1,adresseligne2, ville,code postal,pays,numero de telephone grace à un formulaire), puis vien tl'etape du paiement avec( radio du choix de la carte bleue, son numero,nom sur la carte,date d'expiration, et le code de securité) si toute les informations sont juste et presente dans base de donnnées achat validé ( créée un compte pour montrer que ca marche suffit) et lorsque achat validé et paiement complete envoie d'un mail validant l'achat ( optionnnel)
+     
