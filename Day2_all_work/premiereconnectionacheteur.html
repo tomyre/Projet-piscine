@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Création d'un compte</title>
+	<meta charset='utf-8'>
+	<form action="premiereconnectionacheteur.php" method="post">
+	<link rel="stylesheet" href="styleCSSfirstconnexion.css" media="screen" type="text/css" />
+</head>
+<body>
+	<!--Creation d'un compte et ajout dans la base de données-->
+	<h1 align="center"> Créer votre compte en remplissant les champs suivantes </h1>
+	<div id="container">
+		<label> Prenom: </label>
+		<input type='text' name='prenom' required>
+
+	    <label> Nom: </label>
+	    <input type='text' name='nom' required>
+
+		<label> identifiant(email): </label>
+		<input type='text' name='email' required>
+		
+		<label> Adresse: </label>
+		<input type='text' name='adresse' required>
+	
+		<label> ville : </label>
+		<input type='text' name='ville' required>
+			
+		<label> code postal: </label>
+		<input type='text' name='codepostal' required>
+			
+		<label> pays: </label>
+		<input type='text' name='pays' required>
+
+		<label> numero de telephone: </label>
+		<input type='text' name='telephone' required="">
+
+		<label> paiement(permet de verifier que vous avez plus de 18 ans) :<br> </label>
+		<input type="radio" name="class" value="MasterCard"> MasterCard 
+		<input type="radio" name="class" value="Visa">Visa
+		<input type="radio" name="class" value="AmericanExpresse"> American Express 
+		<input type="radio" name="class" value="PayPal">Paypal <br> <br>
+				
+		<label> Mot de passe: </label>
+	    <input type='password' name="mdp" required="">
+
+		<input type="submit" name="button" value="Créer votre compte">
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> suppresion objet base de données </title>
+	<meta charset='utf-8'>
+	<form action="supfournisseur.php" method="post" onsubmit="return confirmation();">
+    <SCRIPT type="text/javascript">
+		function confirmation(){
+    return confirm("Êtes-vous sur de vouloir supprimer ce fournisseur ?");}
+</SCRIPT>
+</head>
+<body>
+	<!--Creation d'un compte et ajout dans la base de données-->
+	<h1 align="center"> supprimer un objet dans la base de données </h1>
+	<div id="container">
+
+		<label> classe de l'objet à supprimer:<br> </label>
+		<input type="radio" name="class" value="1"> Ferraille ou tresor 
+		<input type="radio" name="class" value="2">Bon pour musée
+		<input type="radio" name="class" value="3"> Accesoire VIP <br> <br>
+
+	    <label> Nom: </label>
+	    <input type='text' name='nom' required>
+
+	    <label> ID: </label>
+	    <input type='number' name='id' required>
+
+		<input type="submit"  name="button" value="supprimer l'objet">
+	</div>
+</body>
+</html>

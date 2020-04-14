@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> suppression fournisseur</title>
+	<meta charset="utf-8">
+	<form action="supfournisseur.php" method="post" onsubmit="return confirmation();">
+
+    <SCRIPT type="text/javascript">
+		function confirmation(){
+    return confirm("Êtes-vous sur de vouloir supprimer ce fournisseur ?");}
+   </SCRIPT>
+   
+</head>
+<body>
+	<!-- afficher la liste des fournisseur avec id et nom -->
+	<h1 align="center"> Quel fournisseur voulez vous supprimer ?</h1>
+	<div id="container">
+		<label> ID: </label>
+		<input type='number' name='id' required>
+
+		<label> Nom: </label>
+		<input type='text' name='nom' required>
+
+		<input type="submit" name="button" value="Supprimer le compte"> 
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Création d'un compte</title>
+	<meta charset='utf-8'>
+	<form action="premiereconnectionvendeur.php" method="post">
+	<link rel="stylesheet" href="styleCSSfirstconnexion.css" media="screen" type="text/css" />
+</head>
+<body>
+	<!--Creation d'un compte et ajout dans la base de données-->
+	<h1 align="center"> Créer votre compte en remplissant les champs suivantes </h1>
+	<div id="container">
+		<label> Prenom: </label>
+		<input type='text' name='prenom' required>
+
+	    <label> Nom: </label>
+	    <input type='text' name='nom' required>
+
+		<label> identifiant(email): </label>
+		<input type='text' name='email' required>
+
+		<label> Mot de passe: </label>
+	    <input type='password' name="mdp" required="">
+
+	    <label> photo(lien.pnj): </label>
+	    <input type='text' name="photo" required="">
+
+		<input type="submit" name="button" value="Créer votre compte">
+	</div>
+</body>
+</html>

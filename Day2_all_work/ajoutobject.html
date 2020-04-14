@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Ajout base de données objet</title>
+	<meta charset='utf-8'>
+	<form action="ajoutobject.php" method="post">
+</head>
+<body>
+	<!--Creation d'un compte et ajout dans la base de données-->
+	<h1 align="center"> Ajoutez un objet dans la base de données </h1>
+	<div id="container">
+
+		<label> classe de l'objet à ajouter:<br> </label>
+		<input type="radio" name="class" value="1"> Ferraille ou tresor 
+		<input type="radio" name="class" value="2">Bon pour musée
+		<input type="radio" name="class" value="3"> Accesoire VIP<br> <br>
+
+	    <label> Nom: </label>
+	    <input type='text' name='nom' required>
+
+		<label> description: </label>
+		<input type='text' name='description' required>
+		
+		<label> Photo: </label>
+		<input type='text' name='photo' required>
+	
+		<label> Video(si existante) : </label>
+		<input type='text' name='video'>
+			
+		<label> Prix: </label>
+		<input type='number' name='prix' required>
+
+		<input type="submit" name="button" value="Ajout de l'objet">
+	</div>
+</body>
+</html>

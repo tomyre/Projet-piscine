@@ -1,0 +1,65 @@
+body {
+ 	padding: 0px;
+ 	margin: 0px;
+	background: #f2f6e9;
+}
+
+/*navigation barre*/
+.navbar {
+ 	background: #F4A460;
+}
+.nav-link, .navbar-brand {
+ 	color: #fff;
+	cursor: pointer;
+}
+.nav-link {
+	margin-right: 1em !important;
+}
+.navbar-collapse {
+ 	justify-content: flex-end;
+}
+
+/*background*/
+.header {
+ 	background-image: url('achat.jpg');
+ 	background-size: cover;
+ 	background-position: center;
+ 	position: relative;
+}
+
+/*--- superposition texte-background ---*/
+.overlay {
+ 	position: absolute;
+	min-height: 100%;
+	min-width: 100%;
+ 	left: 0px;
+ 	top: 0px;
+ 	background-color: rgba(0, 0, 0, 0.4);
+}
+.description {
+ 	left: 50%;
+ 	position: absolute;
+ 	top: 45%;
+ 	transform: translate(-50%, -55%);
+ 	text-align: center;
+ 	color : black;
+}
+.description h1 {
+ 	color: white;
+}
+.description p {
+	color: white;
+	font-size: 1.3rem;
+	line-height: 1.5;
+}
+
+/*bas de page*/
+.page-footer {
+	background-color: #222;
+	color: #ccc;
+	padding: 60px 0 30px;
+}
+.footer-copyright {
+	color: #666;
+	padding: 40px 0;
+}

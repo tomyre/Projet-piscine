@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Identification </title>
+	<meta chaset='utf-8'>
+        <!-- importation du fichier de style -->
+    <link rel="stylesheet" href="styleCSSconnexion.css" media="screen" type="text/css" />
+    <form action="connexion.php" method="POST">
+</head>
+<body>
+     <div id="container">
+          <!-- zone de connexion -->
+        <h1>Connexion</h1>
+
+        <label><b>Email</b></label>
+        <input type="text" placeholder="Entrer votre adresse mail" name="email" required> <!-- required permet d'obliger l'utilisateur à remplir la case avant de lancer le php de de la page -->
+
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Entrer votre mot de passe" name="mdp" required>
+                
+        <input type="submit" name='button' value='LOGIN' >
+    </div>
+</body>
+</html>
+	
