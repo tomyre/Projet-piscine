@@ -1,0 +1,15 @@
+body {padding: 0px;margin: 0px;background: #f2f6e9;}
+.navbar {
+	background:white;
+}
+
+.nav-link,.navbar-brand {
+	color: #0069D8;cursor: pointer;
+}
+.nav-link {
+	margin-right: 1em !important;
+}
+
+.navbar-collapse {
+	justify-content: flex-end;
+}

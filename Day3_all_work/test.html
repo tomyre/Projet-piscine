@@ -1,0 +1,20 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+function openWin(url){
+newwin=window.open(url,'','width=400,height=400,top=200,left=200');
+if(newwin){
+window.onfocus=function(){newwin.window.close()}
+}
+}
+</script>
+
+</head>
+
+<body>
+<a href="page_de_presentation.html" onClick="openWin(this.href);return false">Cliquez sur moi</a>
+</body>
+
+</html>

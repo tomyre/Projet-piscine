@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Ajout fournisseur</title>
+	<meta charset="utf-8">
+	<form action="ajoutfournisseur.php" method="post">
+</head>
+<body>
+	<h1 align="center"> Remplisser les champs suivantes afin d'ajouter un compte dans la base de données </h1>
+	<div id="container">
+		<label> Prenom: <br></label>
+		<input type='text' name='prenom' required><br>
+
+	    <label> Nom: <br></label>
+	    <input type='text' name='nom' required><br>
+
+		<label> identifiant(email):<br> </label>
+		<input type='text' name='email' required><br>
+		
+		<label> Mot de passe: <br></label>
+		<input type='password' name='mdp' required><br>
+	
+		<label> photo :<br> </label>
+		<input type='text' name='photo' required><br>
+
+		<input type="submit" name="button" value="Créer le compte">
+	</div>
+</body>
+</html>
