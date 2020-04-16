@@ -1,29 +1,65 @@
-#menu-deroulant, #menu-deroulant ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
+body {padding: 0px;margin: 0px;background: #f2f6e9;}
+.navbar {
+    background:white;
 }
-#menu-deroulant li {
-/* on place les liens du menu horizontalement */
-    display: inline-block;
+.nav-link,.navbar-brand {
+    color: #0069D8;cursor: pointer;
 }
-#menu-deroulant ul li {
-/* on enlève ce comportement pour les liens du sous menu */
-    display: inherit;
+.nav-link {
+    margin-right: 1em !important;
 }
-#menu-deroulant a {
-    text-decoration: none;
-    display: block;
-	color:#000;
+
+.navbar-collapse {
+    justify-content: flex-end;
 }
-#menu-deroulant ul {
+.header {background-image: url('admin.jpg');
+background-size: cover;
+background-position: center;
+position: relative;
+}
+.ombre {position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.2);}
+
+.description {
+    left: 50%;
     position: absolute;
-/* on cache les sous menus complètement sur la gauche */
-    left: -999em;
-    text-align: left;
-    z-index: 1000;
+    top: 25%;
+    transform: translate(-50%, -55%);
+    text-align: center;
+    
+    }
+.description h1{
+    color: white;
+    border: 10px double white;
 }
-#menu-deroulant li:hover ul {
-/* Au survol des li du menu on replace les sous menus */
-    left: auto;
+.description h3{
+    color: white;
+    text-align: left;
+    border:solid;
+}
+.features {
+    margin: 4em auto;
+    padding: 1em;
+    position: relative;
+    }
+.feature-title {
+    color: #333;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    }
+
+.page-footer {
+    background-color: #222;
+    color: #ccc;
+    padding: 60px 0 30px;
+}
+.footer-copyright {
+    color: #666;
+    padding: 40px 0;
 }
