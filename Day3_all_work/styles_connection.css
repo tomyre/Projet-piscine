@@ -3,7 +3,7 @@ body {padding: 0px;margin: 0px;background: #f2f6e9;}
 	background:white;
 }
 .nav-link,.navbar-brand {
-	color: #84FF00;cursor: pointer;
+	color: #F801E3;cursor: pointer;
 }
 .nav-link {
 	margin-right: 1em !important;
@@ -29,8 +29,7 @@ position: relative;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -55%);
-	text-align: center;
-	
+	text-align: left;
 	}
 .description h1{
 	color: white;
@@ -40,13 +39,6 @@ position: relative;
 	font-size: 1.3rem;
 	line-height: 1.5;
 	}
-/*.description input {
-	border:1px solid #84FF00;
-	background-color:#84FF00;
-	border-radius: 0;
-	color:white;
-}*/
-
 .page-footer {
 	background-color: #222;
 	color: #ccc;
