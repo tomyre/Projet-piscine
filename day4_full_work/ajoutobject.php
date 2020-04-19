@@ -80,8 +80,7 @@ if (isset($_POST['button'])) {
 		if ((($categorie==2)&&($categorie2==4))||(($categorie2==3)&&($categorie==3))){
 			echo " impossible d'être dans la categorie enchere et meilleure offre en même temps.";
 		} else {
-		$sql = "SELECT * FROM article";
-		$sql .= " WHERE Nom LIKE '%$nom%' AND description LIKE '%$description%'";
+		$sql = "SELECT * FROM article WHERE Nom LIKE '%$nom%' AND description LIKE '%$description%'";
 		$result = mysqli_query($db_handle,$sql);
 		if (mysqli_num_rows($result) != 0) {
 			echo "Cet article existe deja. Merci de rajouter un nouvel article non existant";
