@@ -79,6 +79,9 @@ body {
 	border: 1px solid #0069D8;
 	color:white;margin-top: 20px;
 }
+.features a {
+	color: white;
+}
 
 /*bas de page*/
 .page-footer {
