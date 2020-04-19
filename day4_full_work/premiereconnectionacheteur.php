@@ -35,7 +35,8 @@ if (isset($_POST['button'])) {
 			// si le resultat est zero je peux créer un nouveau compte dan sma base de données
 			} else {
 			$sql = "INSERT INTO acheteur (email, MDP, Nom, Prenom, Adresse, Ville, codepostal, pays, telephone, paiement) VALUES ('$email', '$mdp', '$nom', '$prenom', '$adresse', '$ville','$codepostal','$pays','$telephone', '$paiement')";
-			$requete = "INSERT INTO compte_bancaire (numero carte, nom carte, dateexpiration, code securite) VALUES ($numero', '$nom_carte', '$dateexp', '$code')";
+			$result = mysqli_query($db_handle, $sql);
+			
 			echo "Felicitaion, votre compte acheteur à été créé. veuiller vous y connecter via la page de presentation <br>";
 			}
 		} else {
