@@ -92,7 +92,7 @@
 		<tr>
 			
 			<td><img src="<?php echo $data['Photo'];?>"></td>
-			<td><?php echo $data['ID'];?></td>
+			<td><?php echo $data['IDobjet'];?></td>
 			<td><?php echo $data['Nom'];?></td>
 		</tr>
 	<?php
