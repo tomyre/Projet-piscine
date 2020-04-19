@@ -52,6 +52,7 @@ body {
 	font-size: 1.3rem;
 	line-height: 1.5;
 }
+
 .features {
  	margin: 4em auto;
  	padding: 1em;
@@ -78,6 +79,9 @@ body {
 	background-color:#0069D8 ;
 	border: 1px solid #0069D8;
 	color:white;margin-top: 20px;
+}
+.features a {
+	color: white;
 }
 
 /*bas de page*/
