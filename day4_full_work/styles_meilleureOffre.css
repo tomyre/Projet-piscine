@@ -36,9 +36,9 @@ body {
  	background-color: rgba(0, 0, 0, 0.6);
 }
 .description {
- 	left: 50%;
+ 	left: 45%;
  	position: absolute;
- 	top: 25%;
+ 	top: 45%;
  	transform: translate(-50%, -55%);
  	text-align: center;
  	color : white;
