@@ -1,7 +1,7 @@
 <?php
 
 //récupérer les données venant de formulaire
-$ID = isset($_POST["ID"])? $_POST["ID"] : "";
+$IDobjet = isset($_POST["IDobjet"])? $_POST["IDobjet"] : "";
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
 $PrixMax = isset($_POST["PrixMax"])? $_POST["PrixMax"] : "";
 $IDAcheteur = isset($_POST["IDAcheteur"])? $_POST["IDAcheteur"] : "";
@@ -19,14 +19,14 @@ if (isset($_POST['button'])) {
 	if ($db_found) {
 
 		$sql = "SELECT * FROM article";
-		$sql .= "WHERE IDobjet LIKE '%ID'";
+		$sql .= "WHERE IDobjet LIKE '%IDobjet'";
 		$result = mysqli_query($db_handle,$sql);
 		
 		// if (mysqli_num_rows($result) != 0) {
 
 
 		$sql = "SELECT * FROM encheres";
-		$sql .= " WHERE ID LIKE '%$ID%' AND NOM LIKE '%$nom%' AND PrixMax LIKE '%$PrixMax' AND IDAcheteur LIKE '%$IDAcheteur'" ;
+		$sql .= " WHERE IDobjet LIKE '%$IDobjet%' AND NOM LIKE '%$nom%' AND PrixMax LIKE '%$PrixMax' AND IDAcheteur LIKE '%$IDAcheteur'" ;
 		$result = mysqli_query($db_handle,$sql);
 
 		// si le nombres de colonne de mon resultat est different de 0 (= il a trouvé la même proposition) alors la personne a deja faite cette proposition donc je lui dis de faire une autre proposition
@@ -35,7 +35,7 @@ if (isset($_POST['button'])) {
 
 		// si le resultat est zero je peux alors ajouter une nouvelle proposition aux enchères
 		} else {
-			$sql = "INSERT INTO encheres(ID, NOM, PrixMax, IDAcheteur)VALUES('$ID','$nom','$PrixMax','$IDAcheteur')";
+			$sql = "INSERT INTO encheres(IDobjet, NOM, PrixMax, IDAcheteur)VALUES('$IDobjet','$nom','$PrixMax','$IDAcheteur')";
 			$result = mysqli_query($db_handle,$sql);
 			echo "Votre  proposition pour ce bien a bien été envoyé. <br>"; 
 		}
