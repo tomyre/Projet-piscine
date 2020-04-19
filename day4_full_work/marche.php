@@ -66,7 +66,7 @@
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<h1>Découvrez nos articles de la catégorie "Bon pour le marché".</h1>
+			<h1>Découvrez nos articles de la catégorie "Bon pour le musée".</h1>
 		</div>
 	</header>
 
