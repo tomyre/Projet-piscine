@@ -44,6 +44,6 @@ if (isset($_POST['button'])) {
 
 <html>
 	<body>
-		<p>Cliquez <a href="#">ici</a> pour retourner au menu des enchères</p>
+		<p>Cliquez <a href="achatAcheteur.html">ici</a> pour retourner au menu Achat</p>
 	</body>
 </html>
