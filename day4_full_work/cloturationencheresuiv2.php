@@ -58,7 +58,7 @@ if (isset($_POST['button'])) {
 		echo "le gagnant de l'enchere est le vendeur numero" . $data['IDacheteur'] . "<br>";
 
 		$sql = "SELECT * FROM encheres";
-		$sql .= " WHERE idassocie LIKE '%$idsecond%'";
+		$sql .= " WHERE idacheteur LIKE '%$idsecond%'";
 		$result = mysqli_query($db_handle, $sql);
 		$data= mysqli_fetch_assoc($result) ;
 		$prix= $data['PrixMax']+1;

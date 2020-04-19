@@ -3,8 +3,7 @@
 <head>
 	<title> Cloturation d'une enchère</title>
 	<meta charset="utf-8">
-	<form action="cloturationencheresuiv.php" method="post">
-
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" 
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
@@ -27,16 +26,7 @@
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
-
-				<div class="collapse navbar-collapse" id="main-navigation">     
-		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
-			<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
-		</ul>    
-		</div>   
-
 	</nav>
-
 <header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  		<div class="description">
@@ -62,14 +52,14 @@ if ($db_found) {
 		<form>
 			<table>
 				<tr> 
-					<th> ID  &nbsp  &nbsp  &nbsp &nbsp</th>
-					<th> Nom de l'objet  </th>
+					<td> ID </td>
+					<td> nom objet  </td>
 				</tr>
 			<?php
 			while ($data= mysqli_fetch_assoc($result)) {
 			?>
 				<tr> 
-					<td> <?php echo $data['ID'];?> </td>
+					<td> <?php echo $data['IDobjet'];?> </td>
 					<td> <?php echo $data['Nom'];?>  </td>
 				</tr>
 			<?php
@@ -90,11 +80,14 @@ mysqli_close($db_handle);
 	<div class="container features"> 
  		<div class="row">     
  			<div class="col-lg-12 col-md-12 col-sm-12"> 
+ 				<form name="formulaire" method="post" action="cloturationencheresuiv.php">
  				<h1><u><b>Rentrez l'id de l'enchère que vous voulez conclure: </b></u></h1><br>				
 				<label> ID: </label>
 				<input type='number' name='id' required>
 				<br>
-				<input type='submit' name='button' value="Acces à l'enchère"> 
+            	<input type="submit" name="button" value="OK"/>
+       		 </form>
+     
 			</div>
 		</div>
 	</div>

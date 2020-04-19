@@ -3,7 +3,6 @@
 <head>
 	<title> Cloturation d'une enchère</title>
 	<meta charset="utf-8">
-	<form action="cloturationencheresuiv2.php" method="post">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" 
@@ -28,17 +27,13 @@
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
-
 	</nav>
-
 	<header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  		<div class="description">
 			<h1> Qui est le grand vainqueur  ?</h1>
 		</div>
 	</header>
-
-
 <?php 
 //récupérer les données venant de formulaire
 $ID = isset($_POST['ID'])? $_POST['ID'] : "";
@@ -85,14 +80,16 @@ if (isset($_POST['button'])) {
 }
 			 ?>
 				<br>
+				<form name="formulaire" method="post" action="cloturationencheresuiv2.php">
+ 				<h1><u><b>Rentrez l'id de l'enchère que vous voulez conclure: </b></u></h1><br>				
 				<p> rentrez l'ID de l'acheteur avec l'enchère la plus grande: </p>
 				<input type='number' name='idvainqueur' required><br>
 				<p> rentrez l'ID de l'acheteur avec la seconde enchère la plus grande: </p>
 				<input type='number' name='idsecond' required><br><br>
-				<input type="submit" name="button" value="Valider l'enchere ">
+				<input type="submit" name="button" value="Valider l'enchere">
 				<br>
 				<br>
-			</form>
+				</form>
 
 			<footer class="page-footer">    
  	<div class="container">     
@@ -117,3 +114,6 @@ d'auteur: webDynamique.ece.fr</div>
 </footer> 
 </body> 
 </html>
+
+
+			
