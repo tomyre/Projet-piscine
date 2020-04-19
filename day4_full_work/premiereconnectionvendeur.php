@@ -5,6 +5,7 @@ $nom = isset($_POST["nom"])? $_POST["nom"] : "";
 $email = isset($_POST["email"])? $_POST["email"] : "";
 $mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 $photo = isset($_POST["photo"])? $_POST["photo"] : "";
+$photofond = isset($_POST["photofond"])? $_POST["photofond"] : "";
 
 //identifier votre BDD
 $database = "piscine";
@@ -21,7 +22,7 @@ if (isset($_POST['button'])) {
         if (mysqli_num_rows($result) != 0) {
 			echo "Ce compte existe deja. vous pouvez vous y connecter directement sur la page de presentation.";
 			} else {
-			$sql = "INSERT INTO vendeur(Nom, Prenom, email, MDP, photo)VALUES('$nom', '$prenom', '$email', '$mdp','$photo')";
+			$sql = "INSERT INTO vendeur(Nom, Prenom, email, MDP, photo, fond)VALUES('$nom', '$prenom', '$email', '$mdp','$photo', '$photofond')";
 			$result = mysqli_query($db_handle, $sql);
 			echo "Felicitations, votre compte vendeur à été créé. veuiller vous y connecter via la page de presentation. <br>";
 			}
