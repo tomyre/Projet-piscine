@@ -44,7 +44,7 @@
 
 	<!--barre de navigation en haut de la page-->
 	<nav class="navbar navbar-expand-md">
-		<a class="navbar-brand" href="pageacheteur.html"><img src="logo.jpg" height="25px"></a>
+		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>
  		<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
  			<span class="navbar-toggler-icon"></span>
  		</button>
