@@ -60,7 +60,7 @@
         echo '<th class="thliste">Categorie</th>';
         while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
 			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . '&nbsp &nbsp' . '</td>';
+            echo '<td class="tdliste">' . $donnees['IDobjet'] . '&nbsp &nbsp' . '</td>';
 	        echo '<td class="tdliste">' . $donnees['Nom'] . '&nbsp &nbsp' . '</td>';
 	        echo '<td class="tdliste">' . $donnees["Categorie"] . '&nbsp &nbsp' . '<td>';
             }
