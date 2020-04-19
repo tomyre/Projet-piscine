@@ -27,7 +27,16 @@
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
+
+				<div class="collapse navbar-collapse" id="main-navigation">     
+		<ul class="navbar-nav">      
+			<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
+			<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
+		</ul>    
+		</div>   
+
 	</nav>
+
 <header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  		<div class="description">
@@ -53,14 +62,14 @@ if ($db_found) {
 		<form>
 			<table>
 				<tr> 
-					<td> ID </td>
-					<td> nom objet  </td>
+					<th> ID  &nbsp  &nbsp  &nbsp &nbsp</th>
+					<th> Nom de l'objet  </th>
 				</tr>
 			<?php
 			while ($data= mysqli_fetch_assoc($result)) {
 			?>
 				<tr> 
-					<td> <?php echo $data['IDobjet'];?> </td>
+					<td> <?php echo $data['ID'];?> </td>
 					<td> <?php echo $data['Nom'];?>  </td>
 				</tr>
 			<?php

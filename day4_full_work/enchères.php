@@ -10,7 +10,7 @@
 
 	if ($db_handle) {
 
-		$sql = "SELECT * FROM article WHERE Categorie = 'Enchere'";
+		$sql = "SELECT * FROM article WHERE Categorie = 'Enchere' OR Categorie2 = 'Enchere'";
 
 		$result = mysqli_query($db_handle, $sql);
 

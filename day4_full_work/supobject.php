@@ -33,6 +33,14 @@
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
+
+		<div class="collapse navbar-collapse" id="main-navigation">     
+		<ul class="navbar-nav">      
+			<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
+			<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
+		</ul>    
+		</div>   
+
 	</nav>
 
 	<p> Voici la liste des objets dans la base de données : </p> 
@@ -53,9 +61,9 @@
         echo '<th class="thliste">Categorie</th>';
         while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
 			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . '</td>';
-	        echo '<td class="tdliste">' . $donnees['Nom'] . '</td>';
-	        echo '<td class="tdliste">' . $donnees["Categorie"] . '<td>';
+            echo '<td class="tdliste">' . $donnees['ID'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
+	        echo '<td class="tdliste">' . $donnees['Nom'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
+	        echo '<td class="tdliste">' . $donnees["Categorie"] . ' &nbsp  &nbsp &nbsp  &nbsp' . '<td>';
             }
 		echo '</table></div></center>';
             $pdo = null;

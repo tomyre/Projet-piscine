@@ -80,6 +80,7 @@
            			<th>ID &nbsp &nbsp &nbsp &nbsp</th>
            			<th>Nom &nbsp &nbsp &nbsp &nbsp</th>
            			<th>Catégorie &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Catégorie 2 &nbsp &nbsp &nbsp &nbsp</th>
            			<th>Prix &nbsp &nbsp &nbsp &nbsp</th>
            			<th>Description &nbsp &nbsp &nbsp &nbsp</th>
        			</tr>
@@ -92,6 +93,7 @@
 					<td><?php echo $data['ID'];?></td>
 					<td><?php echo $data['Nom'];?></td>
 					<td><?php echo $data['Categorie'];?></td>
+					<td><?php echo $data['Categorie2'];?></td>
 					<td><?php echo $data['prix'];?></td>
 					<td><?php echo $data['description'];?></td>
 				</tr>
