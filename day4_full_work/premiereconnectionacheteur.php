@@ -10,6 +10,11 @@ $ville = isset($_POST["ville"])? $_POST["ville"] : "";
 $codepostal =  isset($_POST["codepostal"])? $_POST["codepostal"] : "";
 $telephone = isset($_POST["telephone"])? $_POST["telephone"] : "";
 $pays= isset($_POST["pays"])? $_POST["pays"] : "";
+$numero =  isset($_POST["num_carte"])? $_POST["num_carte"] : "";
+$dateexp =  isset($_POST["date"])? $_POST["date"] : "";
+$code =  isset($_POST["code"])? $_POST["code"] : "";
+$nom_carte =  isset($_POST["nom_carte"])? $_POST["nom_carte"] : "";
+
 
 //identifier votre BDD
 $database = "piscine";
@@ -29,8 +34,8 @@ if (isset($_POST['button'])) {
 			echo "Ce compte existe deja. vous pouvez vous y connecter directement sur la page de presentation.";
 			// si le resultat est zero je peux créer un nouveau compte dan sma base de données
 			} else {
-			$sql = "INSERT INTO acheteur(email, MDP, Nom, Prenom, Adresse, Ville, codepostal, pays, telephone, paiement)VALUES('$email', '$mdp', '$nom', '$prenom', '$adresse', '$ville','$codepostal','$pays','$telephone', '$paiement')";
-			$result = mysqli_query($db_handle, $sql);
+			$sql = "INSERT INTO acheteur (email, MDP, Nom, Prenom, Adresse, Ville, codepostal, pays, telephone, paiement) VALUES ('$email', '$mdp', '$nom', '$prenom', '$adresse', '$ville','$codepostal','$pays','$telephone', '$paiement')";
+			$requete = "INSERT INTO compte_bancaire (numero carte, nom carte, dateexpiration, code securite) VALUES ($numero', '$nom_carte', '$dateexp', '$code')";
 			echo "Felicitaion, votre compte acheteur à été créé. veuiller vous y connecter via la page de presentation <br>";
 			}
 		} else {

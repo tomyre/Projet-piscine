@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Achetez-le maintenant</title>
+	<title>Meilleure Offre</title>
 	<meta charset="utf-8">
 
 	<!--charger bootstrap-->
@@ -12,7 +12,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
 
 	<!-- appeler la partie CSS-->
-	<link rel="stylesheet" type="text/css" href="styles_acheterMtn.css">
+	<link rel="stylesheet" type="text/css" href="styles_meilleureOffre.css">
 
 	<!--sert au backgroung-->
 	<script type="text/javascript">
@@ -22,37 +22,47 @@
 	</script>
 
 </head>
-
 <body>
+
 
 	<!--barre de navigation en haut de la page-->
 	<nav class="navbar navbar-expand-md">
-		<a class="navbar-brand" href="pageacheteur.html"><img src="logo.jpg" height="25px"></a>
+		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>
  		<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
  			<span class="navbar-toggler-icon"></span>
  		</button>
  		<div class="collapse navbar-collapse" id="main-navigation">
  			<ul class="navbar-nav">
- 				<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
- 				<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
+ 				<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li>
+  				<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li> 
  				<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
  			</ul>
 		</div>
 	</nav>
 
-
-	<!--conteneur de la page-->
 	<header class="page-header header container-fluid">
 
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<form action="acheterAcheteur.php" method="post">
-				<h1>Achetez les articles dès maintenant !</h1>
-				<p>Vous voulez un article tout de suite? Alors N'ATTENDEZ PLUS! Achetez votre article instantanément sans perdre de temps!
-				<br><br>
-				Cliquez ci-dessous pour découvrir nos merveilles</p>
-				<input type="submit" name="button1" value="Voir les articles">
+			<form action="faireOffre.php" method="post">
+				<div id="container">
+				<p>
+					<label>Veuillez indiquer votre IDacheteur</label>
+					<input type="text" name="IDacheteur" required>
+					<br>
+					<label>Veuillez indiquer l'ID de l'objet</label>
+					<input type="text" name="ID" required>
+					<br>
+					<label>Veuillez indiquer le nom de l'objet</label>
+					<input type="text" name="Nom" required>
+					<br>
+					<label>Veuillez entrez le montant de votre offre</label>
+					<input type="text" name="Prix" required>
+					<br>
+					<input type="submit" name="button" value="Prendre en compte cette offre">
+				</p>
+				</div>
 			</form>
 		</div>
 

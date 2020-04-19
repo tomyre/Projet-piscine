@@ -51,7 +51,6 @@
 				<p>
 				<label> Prénom: </label>
 				<input type='text' name='prenom' required>
-				<br>
 	    		<label> Nom: </label>
 	    		<input type='text' name='nom' required>
 	    		<br>
@@ -60,18 +59,17 @@
 				<br>
 				<label> Adresse: </label>
 				<input type='text' name='adresse' required>
-				<br>
 				<label> Ville : </label>
 				<input type='text' name='ville' required>
 				<br>			
 				<label> Code postal: </label>
-				<input type='text' name='codepostal' required>
+				<input type='number' name='codepostal' required>
 				<br>
 				<label> Pays: </label>
 				<input type='text' name='pays' required>
 				<br>
 				<label> Numero de téléphone: </label>
-				<input type='text' name='telephone' required="">
+				<input type='number' name='telephone' required>
 				<br>
 				<label> Paiement :<br> </label>
 				<input type="radio" name="class" value="MasterCard"> MasterCard 
@@ -79,10 +77,20 @@
 				<input type="radio" name="class" value="AmericanExpresse"> American Express 
 				<input type="radio" name="class" value="PayPal">Paypal
 				<br>
+				<label> Numero de la carte: </label>
+	    		<input type='number' name="num_carte" required="">
+	    		<br>
+	    		<label> Nom sur la carte: </label>
+	    		<input type='text' name="nom_carte" required="">
+	    		<br>
+	    		<label> Date d'expiration : </label>
+	    		<input type='date' name="date" required="">
+	    		<br>
+	    		<label> Code de securite: </label>
+	    		<input type='password' name="code" required="">
+	    		<br>
 				<label> Mot de passe: </label>
 	    		<input type='password' name="mdp" required="">
-	    		<br>
-	    		<br>
 				<input type="submit" name="button" value="Créer votre compte">
 				</p>
 			</div>

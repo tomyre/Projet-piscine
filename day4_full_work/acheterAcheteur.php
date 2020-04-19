@@ -1,5 +1,23 @@
-<!DOCTYPE html>
+<?php
+
+	//id la bdd utile
+	$database = 'piscine';
+	//connection à la bdd
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+
+	if (isset($_POST["button1"])) {
+
+	if ($db_handle) {
+
+		$sql = "SELECT * FROM article WHERE Categorie = 'Acheter'";
+
+		$result = mysqli_query($db_handle, $sql);
+
+?> 
+
 <html>
+
 <head>
 	<title>Achetez-le maintenant</title>
 	<meta charset="utf-8">
@@ -47,18 +65,50 @@
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<form action="acheterAcheteur.php" method="post">
-				<h1>Achetez les articles dès maintenant !</h1>
-				<p>Vous voulez un article tout de suite? Alors N'ATTENDEZ PLUS! Achetez votre article instantanément sans perdre de temps!
-				<br><br>
-				Cliquez ci-dessous pour découvrir nos merveilles</p>
-				<input type="submit" name="button1" value="Voir les articles">
-			</form>
+			<p>
+				<b>Découvrez tous nos articles disponibles pour un achat immédiat ci-dessous.</b><br><br>
+				Il vous suffit de cliquer "Ajouter" pour que votre produit soit mis dans votre panier. Bon shopping!
+			</p>
 		</div>
-
 	</header>
 
-	<!-- bas de page -->
+	<div class="container features"> 
+ 		<div class="row">     
+ 			<div class="col-lg-12 col-md-12 col-sm-12"> 
+
+			<table>
+				<tr>
+           			<th>Photo &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>ID &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Nom &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Catégorie &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Prix &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Description &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Ajouter au panier &nbsp &nbsp &nbsp &nbsp</th>
+       			</tr>
+
+<?php
+	while($data = mysqli_fetch_assoc($result)) {
+?>
+				<tr>
+					<td><img src="<?php echo $data['Photo'];?>" Height="100"></td>
+					<td><?php echo $data['ID'];?></td>
+					<td><?php echo $data['Nom'];?></td>
+					<td><?php echo $data['Type'];?></td>
+					<td><?php echo $data['prix'];?></td>
+					<td><?php echo $data['description'];?></td>
+					<td><button class="btn btn-outline-secondary btn-lg"><a href="panieracheteur.html">Ajouter</a></td>
+				</tr>
+<?php
+	}
+?>
+			</table>
+			</div>
+		</div>
+	</div>
+
+
+<!-- bas de page -->
 	<footer class="page-footer">    
  	<div class="container">     
  		<div class="row">      
@@ -83,3 +133,12 @@
 
 </body>
 </html>
+
+
+<?php
+		}
+
+	} else {
+		echo "Database not found. <br>";
+	}
+?>

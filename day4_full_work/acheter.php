@@ -1,5 +1,23 @@
-<!DOCTYPE html>
+<?php
+
+	//id la bdd utile
+	$database = 'piscine';
+	//connection à la bdd
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+
+	if (isset($_POST["button1"])) {
+
+	if ($db_handle) {
+
+		$sql = "SELECT * FROM article WHERE Categorie = 'Acheter'";
+
+		$result = mysqli_query($db_handle, $sql);
+
+?> 
+
 <html>
+
 <head>
 	<title>Achetez-le maintenant</title>
 	<meta charset="utf-8">
@@ -33,13 +51,14 @@
  		</button>
  		<div class="collapse navbar-collapse" id="main-navigation">
  			<ul class="navbar-nav">
- 				<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
- 				<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
- 				<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
+ 				<li class="nav-item"><a class="nav-link" href="catégories.html">Catégories</a></li>   
+ 				<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>
+				<li class="nav-item"><a class="nav-link" href="choixdroit.html">Creer un compte</a></li>
+				<li class="nav-item"><a class="nav-link" href="connexion.html"> Se connecter</a></li>        
+				<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
  			</ul>
 		</div>
 	</nav>
-
 
 	<!--conteneur de la page-->
 	<header class="page-header header container-fluid">
@@ -47,18 +66,45 @@
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<form action="acheterAcheteur.php" method="post">
-				<h1>Achetez les articles dès maintenant !</h1>
-				<p>Vous voulez un article tout de suite? Alors N'ATTENDEZ PLUS! Achetez votre article instantanément sans perdre de temps!
-				<br><br>
-				Cliquez ci-dessous pour découvrir nos merveilles</p>
-				<input type="submit" name="button1" value="Voir les articles">
-			</form>
+			<h1>Découvrez tous nos articles disponibles pour un achat immédiat ci-dessous.</h1>
 		</div>
-
 	</header>
 
-	<!-- bas de page -->
+	<div class="container features"> 
+ 		<div class="row">     
+ 			<div class="col-lg-12 col-md-12 col-sm-12"> 
+
+			<table>
+				<tr>
+           			<th>Photo &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>ID &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Nom &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Type &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Prix &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Description &nbsp &nbsp &nbsp &nbsp</th>
+       			</tr>
+
+<?php
+	while($data = mysqli_fetch_assoc($result)) {
+?>
+				<tr>
+					<td><img src="<?php echo $data['Photo'];?>" Height="100"></td>
+					<td><?php echo $data['ID'];?></td>
+					<td><?php echo $data['Nom'];?></td>
+					<td><?php echo $data['Type'];?></td>
+					<td><?php echo $data['prix'];?></td>
+					<td><?php echo $data['description'];?></td>
+				</tr>
+<?php
+				}
+?>
+			</table>
+			</div>
+		</div>
+	</div>
+
+
+<!-- bas de page -->
 	<footer class="page-footer">    
  	<div class="container">     
  		<div class="row">      
@@ -83,3 +129,12 @@
 
 </body>
 </html>
+
+
+<?php
+		}
+
+	} else {
+		echo "Database not found. <br>";
+	}
+?>

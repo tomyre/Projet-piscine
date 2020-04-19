@@ -1,7 +1,25 @@
-<!DOCTYPE html>
+<?php
+
+	//id la bdd utile
+	$database = 'piscine';
+	//connection à la bdd
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+
+	if (isset($_POST["button1"])) {
+
+	if ($db_handle) {
+
+		$sql = "SELECT * FROM article WHERE Type = 'VIP'";
+
+		$result = mysqli_query($db_handle, $sql);
+
+?> 
+
 <html>
+
 <head>
-	<title>Meilleure Offre</title>
+	<title>Accessoires VIP</title>
 	<meta charset="utf-8">
 
 	<!--charger bootstrap-->
@@ -12,7 +30,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
 
 	<!-- appeler la partie CSS-->
-	<link rel="stylesheet" type="text/css" href="styles_meilleureOffre.css">
+	<link rel="stylesheet" type="text/css" href="styles_vip.css">
 
 	<!--sert au backgroung-->
 	<script type="text/javascript">
@@ -22,8 +40,8 @@
 	</script>
 
 </head>
-<body>
 
+<body>
 
 	<!--barre de navigation en haut de la page-->
 	<nav class="navbar navbar-expand-md">
@@ -33,9 +51,11 @@
  		</button>
  		<div class="collapse navbar-collapse" id="main-navigation">
  			<ul class="navbar-nav">
- 				<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
- 				<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
- 				<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
+ 				<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>   
+ 				<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>
+				<li class="nav-item"><a class="nav-link" href="choixdroit.html">Creer un compte</a></li>
+				<li class="nav-item"><a class="nav-link" href="connexion.html"> Se connecter</a></li>        
+				<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
  			</ul>
 		</div>
 	</nav>
@@ -46,18 +66,45 @@
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<form action="meilleureOffreAcheteur.php" method="post">
-				<br><br>
-				<h1>Vous souhaitez faire une offre pour un article ? C'est par ici !</h1>
-				<br><br>
-				Cliquez ci-dessous pour voir les articles qui attendent votre offre.</p>
-				<input type="submit" name="button1" value="Voir les articles">
-			</form>
+			<h1>Découvrez nos articles de la catégorie "Accessoires VIP".</h1>
 		</div>
-
 	</header>
 
-	<!-- bas de page -->
+	<div class="container features"> 
+ 		<div class="row">     
+ 			<div class="col-lg-12 col-md-12 col-sm-12"> 
+
+			<table>
+				<tr>
+           			<th>Photo &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>ID &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Nom &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Catégorie &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Prix &nbsp &nbsp &nbsp &nbsp</th>
+           			<th>Description &nbsp &nbsp &nbsp &nbsp</th>
+       			</tr>
+
+<?php
+	while($data = mysqli_fetch_assoc($result)) {
+?>
+				<tr>
+					<td><img src="<?php echo $data['Photo'];?>" Height="100"></td>
+					<td><?php echo $data['ID'];?></td>
+					<td><?php echo $data['Nom'];?></td>
+					<td><?php echo $data['Categorie'];?></td>
+					<td><?php echo $data['prix'];?></td>
+					<td><?php echo $data['description'];?></td>
+				</tr>
+<?php
+				}
+?>
+			</table>
+			</div>
+		</div>
+	</div>
+
+
+<!-- bas de page -->
 	<footer class="page-footer">    
  	<div class="container">     
  		<div class="row">      
@@ -82,3 +129,12 @@
 
 </body>
 </html>
+
+
+<?php
+		}
+
+	} else {
+		echo "Database not found. <br>";
+	}
+?>
