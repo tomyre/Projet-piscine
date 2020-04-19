@@ -24,7 +24,7 @@ if (isset($_POST['button'])) {
 			echo "Ce compte vendeur existe deja. veuillez rentrez un autre fournisseur ";
 			// si le resultat est zero je peux créer un nouveau compte dan sma base de données
 			} else {
-			$sql = "INSERT INTO vendeur(Nom, Prenom, email, MDP, photo)VALUES('$nom', '$prenom', '$email', '$mdp','$photo')";
+			$sql = "INSERT INTO vendeur(Nom, Prenom, email, MDP, photo, fond)VALUES('$nom', '$prenom', '$email', '$mdp','$photo','')";
 			$result = mysqli_query($db_handle, $sql);
 			echo "Felicitations, le compte fournisseur à été créé et ajouté à la base de données.Il peut maintenant se connecter directement via la page de connexion. <br>";
 			}
@@ -58,21 +58,13 @@ if (isset($_POST['button'])) {
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
-
-		<div class="collapse navbar-collapse" id="main-navigation">     
-		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
-			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
-			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
-			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
-		</ul>    
-		</div>  
 	</nav>
+</body>
 
 	<header class="page-header header container-fluid">
 		<div class="ombre"></div>      

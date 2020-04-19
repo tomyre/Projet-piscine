@@ -29,16 +29,7 @@
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
-		</button>   
-
-		<div class="collapse navbar-collapse" id="main-navigation">     
-		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
-			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
-			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
-			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
-		</ul>    
-		</div>  
+		</button>    
 	</nav>
 
 <header class="page-header header container-fluid">
@@ -79,6 +70,12 @@
    				<option value="2">Bon pour musée</option>
    				<option value="3">Accessoire VIP</option>
 			</select> <br> 
+
+		<label> ID associé à l'article( 0 si admin et ID si vendeur): </label>
+		<input type='number' name='idvendeur' required> <br> 	
+
+		<label> ID de l'objet: </label>
+		<input type='number' name='idobjet' required> <br> 	
 
 		<label>Description:</label>
 		<input type='text' name='description' required> <br> 

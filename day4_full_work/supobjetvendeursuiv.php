@@ -21,11 +21,20 @@
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
-		</button>    
+		</button>   
+
+		<div class="collapse navbar-collapse" id="main-navigation">     
+		<ul class="navbar-nav">      
+			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
+			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
+			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
+			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
+		</ul>    
+		</div>  
 	</nav>
 
 <?php 
@@ -70,9 +79,8 @@ if (isset($_POST['button'])) {
 <header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  			<div class="description">
- 			<h3>cliquez <u><b><a href="supobject.php">ici</a></b></u> pour etre redirigé vers la page precedente</h3>
+ 			<h3>cliquez <u><b><a href="supobjetvendeur.php">ici</a></b></u> pour etre redirigé vers la page precedente</h3>
 			<br>
-			<h3>cliquez <u><b><a href="pageadmin.html">ici</a></b></u> pour etre redirigé vers la page principal</h3><br>
 		</div>
 	</header>
 

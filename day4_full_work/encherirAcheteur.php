@@ -1,10 +1,25 @@
-<!DOCTYPE html>
+<?php
+
+	//id la bdd utile
+	$database = 'piscine';
+	//connection à la bdd
+	$db_handle = mysqli_connect('localhost', 'root', '');
+	$db_found = mysqli_select_db($db_handle, $database);
+
+	if (isset($_POST["button"])) {
+
+	if ($db_handle) {
+
+		$sql = "SELECT * FROM article WHERE Categorie = 'Enchere'";
+
+		$result = mysqli_query($db_handle, $sql);
+
+?> 
+
 <html>
 <head>
 	<title>Enchères</title>
 	<meta charset="utf-8">
-
-	<form action="encherirAcheteur.php" method="post">
 
 	<!--charger bootstrap-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +44,7 @@
 
 	<!--barre de navigation en haut de la page-->
 	<nav class="navbar navbar-expand-md">
-		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>
+		<a class="navbar-brand" href="pageacheteur.html"><img src="logo.jpg" height="25px"></a>
  		<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
  			<span class="navbar-toggler-icon"></span>
  		</button>
@@ -48,16 +63,46 @@
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<h1>Enchères !</h1>
-			<p>Battez vous pour votre produit préféré tout en économisant vos ressources ! Ici vous avez la possibilité de surenchérir le produit que vous voulez acheter!</p>
-			<button class="btn btn-outline-secondary btn-lg" name="button">Voir les enchères</button>
+				<h3><b>Découvrez tous nos articles disponibles aux enchères.</b><br><br></h3>
+				<p>Il vous suffit de cliquer "Enchérir" pour que vous puissiez surenchérir le produit!</p>
+			
 		</div>
-		
-
 	</header>
- 
 
-	<!-- bas de page -->
+<div class="container features"> 
+ 		<div class="row">     
+ 			<div class="col-lg-12 col-md-12 col-sm-12"> 
+
+
+	<table>
+		<tr>
+           	<th>Photo &nbsp &nbsp &nbsp &nbsp</th>
+           	<th>ID &nbsp &nbsp &nbsp &nbsp</th>
+           	<th>Nom &nbsp &nbsp &nbsp &nbsp</th>
+           
+           	
+       	</tr>
+
+<?php
+	while($data = mysqli_fetch_assoc($result)) {
+?>
+
+		<tr>
+			
+			<td><img src="<?php echo $data['Photo'];?>"></td>
+			<td><?php echo $data['ID'];?></td>
+			<td><?php echo $data['Nom'];?></td>
+			<td><button class="btn btn-outline-secondary btn-lg"><a href="encherir.html">Enchérir</a></button></td><br>
+		</tr>
+	<?php
+				}
+?>
+	</table>
+</div>
+</div>
+</div>
+
+<!-- bas de page -->
 	<footer class="page-footer">    
  	<div class="container">     
  		<div class="row">      
@@ -77,8 +122,16 @@
 			</div>    
 		</div>    
 		<div class="footer-copyright text-center">&copy; 2020 Copyright | Droit d'auteur: webDynamique.ece.fr</div>
-	</div>  
+	</div> 
 	</footer>
 
 </body>
 </html>
+
+<?php
+		}
+
+	} else {
+		echo "Database not found. <br>";
+	}
+?>

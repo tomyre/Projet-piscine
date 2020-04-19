@@ -33,18 +33,9 @@
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
-
-		<div class="collapse navbar-collapse" id="main-navigation">     
-		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
-			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
-			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
-			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
-		</ul>    
-		</div>  
 	</nav>
 
-	<p> Voici la liste des objets feraille et tresor dans la base de données : </p> 
+	<p> Voici la liste des objets dans la base de données : </p> 
 <?php
 	try		//Connection a la bdd
 	{
@@ -62,9 +53,9 @@
         echo '<th class="thliste">Categorie</th>';
         while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
 			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . '&nbsp &nbsp' . '</td>';
-	        echo '<td class="tdliste">' . $donnees['Nom'] . '&nbsp &nbsp' . '</td>';
-	        echo '<td class="tdliste">' . $donnees["Categorie"] . '&nbsp &nbsp' . '<td>';
+            echo '<td class="tdliste">' . $donnees['ID'] . '</td>';
+	        echo '<td class="tdliste">' . $donnees['Nom'] . '</td>';
+	        echo '<td class="tdliste">' . $donnees["Categorie"] . '<td>';
             }
 		echo '</table></div></center>';
             $pdo = null;

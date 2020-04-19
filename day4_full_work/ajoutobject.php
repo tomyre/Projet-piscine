@@ -20,20 +20,11 @@
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
-
-		<div class="collapse navbar-collapse" id="main-navigation">     
-		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
-			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
-			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
-			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
-		</ul>    
-		</div>  
 	</nav>
 
 <?php 
@@ -46,6 +37,8 @@ $photo = isset($_POST["photo"])? $_POST["photo"] : "";
 $video = isset($_POST["video"])? $_POST["video"] : "";
 $prix = isset($_POST["prix"])? $_POST["prix"] : "";
 $choix = isset($_POST["categorie"])? $_POST["categorie"] : "";
+$idvendeur = isset($_POST["idvendeur"])? $_POST["idvendeur"] : "";
+$idobjet = isset($_POST["idobjet"])? $_POST["idobjet"] : "";
 
 //identifier votre BDD
 $database = "piscine";
@@ -59,42 +52,42 @@ if (isset($_POST['button'])) {
 		if ($choix==1){
 			$type = 'ferraille' ;
 		} else if($choix==2){
-			$type = 'bonmusee';
+			$type = 'musee';
 		} else if($choix==3) {
-			$type = "accessoirevip";
+			$type = "VIP";
 		}
 		if ($categorie==1){
-			$Categorie= 'achatimmediat';
+			$Categorie= 'Acheter';
 		}
 		if ($categorie==2){
-			$Categorie= 'enchere';
+			$Categorie= 'Enchere';
 		}
 		if ($categorie==3){
-			$Categorie= 'meilleureoffre';
+			$Categorie= 'Offre';
 		}
 		if ($categorie2==1){
 			$Categorie2= '';
 		}
 		if ($categorie2==2){
-			$Categorie2= 'achatimmediat';
+			$Categorie2= 'Acheter';
 		}
 		if ($categorie2==3){
-			$Categorie2= 'enchere';
+			$Categorie2= 'Enchere';
 		}
 		if ($categorie2==4){
-			$Categorie2= 'meilleur offre';
+			$Categorie2= 'Offre';
 		}
 		if ((($categorie==2)&&($categorie2==4))||(($categorie2==3)&&($categorie==3))){
-			echo " impossible d'etre dans la categorie enchere et meilleur offre en même temps .... Reflechis connard";
+			echo " impossible d'être dans la categorie enchere et meilleure offre en même temps.";
 		} else {
 		$sql = "SELECT * FROM article";
 		$sql .= " WHERE Nom LIKE '%$nom%' AND description LIKE '%$description%'";
-		$result = mysqli_query($db_handle, $sql);
+		$result = mysqli_query($db_handle,$sql);
 		if (mysqli_num_rows($result) != 0) {
-			echo "Cet article existe deja.";
+			echo "Cet article existe deja. Merci de rajouter un nouvel article non existant";
 		} else {
-			$sql = "INSERT INTO article (Nom,Type,Categorie,Categorie2,prix,Photo,description,video)VALUES('$nom','$type','Categorie','$Categorie2','$prix','$photo','$description','$video')";
-			$result = mysqli_query($db_handle, $sql);
+			$sql = "INSERT INTO article (IDobjet, idassocie, idvendeur, Nom, Type, Categorie, Categorie2, prix, Photo, description, video) VALUES ('$idobjet', '0', '$idvendeur', '$nom', '$type', '$Categorie', '$Categorie2', '$prix', '$photo', '$description', '$video')";
+			$result = mysqli_query($db_handle,$sql);
 			echo "Felicitation, l'objet à bien ete ajouté sur le site dans la table article <br>";
 		}
 	}

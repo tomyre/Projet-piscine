@@ -1,11 +1,60 @@
+<?php
+
+//récupérer les données venant de formulaire
+$ID = isset($_POST["ID"])? $_POST["ID"] : "";
+$nom = isset($_POST["nom"])? $_POST["nom"] : "";
+$PrixMax = isset($_POST["PrixMax"])? $_POST["PrixMax"] : "";
+$IDAcheteur = isset($_POST["IDAcheteur"])? $_POST["IDAcheteur"] : "";
+
+
+//identifier votre BDD
+$database = "piscine";
+
+//connectez-vous de votre BDD
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+//lorsque j'appuie sur le bouton je vais chercher dans ma base de données si la même proposition n'a pas déjà été faite
+if (isset($_POST['button'])) {
+	if ($db_found) {
+
+		$sql = "SELECT * FROM article";
+		$sql .= "WHERE IDobjet LIKE '%ID'";
+		$result = mysqli_query($db_handle,$sql);
+		
+		// if (mysqli_num_rows($result) != 0) {
+
+
+		$sql = "SELECT * FROM encheres";
+		$sql .= " WHERE ID LIKE '%$ID%' AND NOM LIKE '%$nom%' AND PrixMax LIKE '%$PrixMax' AND IDAcheteur LIKE '%$IDAcheteur'" ;
+		$result = mysqli_query($db_handle,$sql);
+
+		// si le nombres de colonne de mon resultat est different de 0 (= il a trouvé la même proposition) alors la personne a deja faite cette proposition donc je lui dis de faire une autre proposition
+		if (mysqli_num_rows($result) != 0) {
+		echo "La  proposition sur cet article a déjà été faite, elle est en attente d'examin par l'administrateur";
+
+		// si le resultat est zero je peux alors ajouter une nouvelle proposition aux enchères
+		} else {
+			$sql = "INSERT INTO encheres(ID, NOM, PrixMax, IDAcheteur)VALUES('$ID','$nom','$PrixMax','$IDAcheteur')";
+			$result = mysqli_query($db_handle,$sql);
+			echo "Votre  proposition pour ce bien a bien été envoyé. <br>"; 
+		}
+		// }
+		} 
+		else {
+		echo "Database not found";
+		}
+	}
+ ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Enchères</title>
+	<title>Enchérir</title>
 	<meta charset="utf-8">
 
-	<form action="encherirAcheteur.php" method="post">
-
+	<form action="encherir.php" method="post">
 	<!--charger bootstrap-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet"
@@ -14,7 +63,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
 
 	<!-- appeler la partie CSS-->
-	<link rel="stylesheet" type="text/css" href="styles_enchères.css">
+	<link rel="stylesheet" type="text/css" href="styles_enchérir.css">
 
 	<!--sert au backgroung-->
 	<script type="text/javascript">
@@ -29,7 +78,7 @@
 
 	<!--barre de navigation en haut de la page-->
 	<nav class="navbar navbar-expand-md">
-		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>
+		<a class="navbar-brand" href="pageacheteur.html"><img src="logo.jpg" height="25px"></a>
  		<button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
  			<span class="navbar-toggler-icon"></span>
  		</button>
@@ -42,22 +91,18 @@
 		</div>
 	</nav>
 
-	<!--conteneur de la page-->
+<!--conteneur de la page-->
 	<header class="page-header header container-fluid">
 
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-			<h1>Enchères !</h1>
-			<p>Battez vous pour votre produit préféré tout en économisant vos ressources ! Ici vous avez la possibilité de surenchérir le produit que vous voulez acheter!</p>
-			<button class="btn btn-outline-secondary btn-lg" name="button">Voir les enchères</button>
+				<h3><b>Cliquez <u><a href="enchères.html">ici</a></u> pour retourner au menu des enchères</b></h3>
+			
 		</div>
-		
-
 	</header>
- 
 
-	<!-- bas de page -->
+<!-- bas de page -->
 	<footer class="page-footer">    
  	<div class="container">     
  		<div class="row">      
@@ -82,3 +127,4 @@
 
 </body>
 </html>
+

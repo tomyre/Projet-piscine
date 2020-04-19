@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> suppression fournisseur</title>
+	<title> Cloturation d'une enchère</title>
 	<meta charset="utf-8">
-	<form action="supfournisseursuiv.php" method="post" onsubmit="return confirmation();">
+	<form action="cloturationencheresuiv.php" method="post">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" 
@@ -18,12 +18,7 @@
 	$('.header').height($(window).height());    
 	}); 
 	</script> 
-
-    <SCRIPT type="text/javascript">
-		function confirmation(){
-    return confirm("Êtes-vous sur de vouloir supprimer ce fournisseur ?");}
-   </SCRIPT>
-</head>
+    </head>
 
 <body>
 	<nav class="navbar navbar-expand-md">    
@@ -32,51 +27,65 @@
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
-
 	</nav>
-
-<p> Voici la liste des fournisseurs actuelle : </p>
-<?php
-	try		//Connection a la bdd
-	{
-		$bdd = new PDO('mysql:host=localhost;dbname=piscine', 'root', '');
-	}
-	catch (Exception $e)
-	{
-		die('Erreur : ' . $e->getMessage());
-	}
-	$reponse = $bdd->query('SELECT * FROM vendeur');
-		echo '<div class="liste"><table>';
-        echo '<tr>';
-		echo '<th class="thliste">ID</th>';
-        echo '<th class="thliste">Nom</th>';
-        while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
-			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . '</td>';
-	        echo '<td class="tdliste">' . $donnees['Nom'] . '</td>';
-            }
-		echo '</table></div></center>';
-            $pdo = null;
-?>
-
-	<header class="page-header header container-fluid">
+<header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  		<div class="description">
-			<h1> Quel fournisseur voulez vous supprimer ?</h1>
+			<h1> A quelle enchère voulez vous acceder  ?</h1>
 		</div>
-	</header>
-		
+</header>
+
+<p> Voici la liste des enchères actuelle : </p>
+
+<?php
+//identifier votre BDD
+$database = "piscine";
+
+//connectez-vous de votre BDD
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+if ($db_found) {
+	$sql = "SELECT * FROM article WHERE Categorie = 'Enchere' OR Categorie2 = 'Enchere'";
+	$result = mysqli_query($db_handle, $sql);
+	if (mysqli_num_rows($result) != 0) {
+		?>
+		<form>
+			<table>
+				<tr> 
+					<td> ID </td>
+					<td> nom objet  </td>
+				</tr>
+			<?php
+			while ($data= mysqli_fetch_assoc($result)) {
+			?>
+				<tr> 
+					<td> <?php echo $data['IDobjet'];?> </td>
+					<td> <?php echo $data['Nom'];?>  </td>
+				</tr>
+			<?php
+			}
+			?>
+			</table>
+		</form>
+		<?php 
+	} else {
+		echo "aucun article actuellement en enchère veuilez reesayer plus tard";
+	}
+} else {
+	echo "database not found";
+}
+mysqli_close($db_handle);
+?>
+	
 	<div class="container features"> 
  		<div class="row">     
  			<div class="col-lg-12 col-md-12 col-sm-12"> 
- 				<h1><u><b>Supression d'un compte dans la base de données</b></u></h1><br>
-				
+ 				<h1><u><b>Rentrez l'id de l'enchère que vous voulez conclure: </b></u></h1><br>				
 				<label> ID: </label>
 				<input type='number' name='id' required>
-
-				<label> Nom: </label>
-				<input type='text' name='nom' required>
-				<input type="submit" name="button" value="Supprimer le compte"> 
+				<br>
+				<input type='submit' name='button' value="Acces à l'enchère"> 
 			</div>
 		</div>
 	</div>
@@ -104,3 +113,4 @@ d'auteur: webDynamique.ece.fr</div>
 </footer> 
 </body> 
 </html>
+

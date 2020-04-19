@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> suppression fournisseur</title>
+	<title> Cloturation d'une enchère</title>
 	<meta charset="utf-8">
-	<form action="supfournisseursuiv.php" method="post" onsubmit="return confirmation();">
+	<form action="cloturationencheresuiv2.php" method="post">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" 
@@ -19,15 +19,11 @@
 	}); 
 	</script> 
 
-    <SCRIPT type="text/javascript">
-		function confirmation(){
-    return confirm("Êtes-vous sur de vouloir supprimer ce fournisseur ?");}
-   </SCRIPT>
 </head>
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
@@ -35,53 +31,70 @@
 
 	</nav>
 
-<p> Voici la liste des fournisseurs actuelle : </p>
-<?php
-	try		//Connection a la bdd
-	{
-		$bdd = new PDO('mysql:host=localhost;dbname=piscine', 'root', '');
-	}
-	catch (Exception $e)
-	{
-		die('Erreur : ' . $e->getMessage());
-	}
-	$reponse = $bdd->query('SELECT * FROM vendeur');
-		echo '<div class="liste"><table>';
-        echo '<tr>';
-		echo '<th class="thliste">ID</th>';
-        echo '<th class="thliste">Nom</th>';
-        while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
-			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . '</td>';
-	        echo '<td class="tdliste">' . $donnees['Nom'] . '</td>';
-            }
-		echo '</table></div></center>';
-            $pdo = null;
-?>
-
 	<header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  		<div class="description">
-			<h1> Quel fournisseur voulez vous supprimer ?</h1>
+			<h1> Qui est le grand vainqueur  ?</h1>
 		</div>
 	</header>
-		
-	<div class="container features"> 
- 		<div class="row">     
- 			<div class="col-lg-12 col-md-12 col-sm-12"> 
- 				<h1><u><b>Supression d'un compte dans la base de données</b></u></h1><br>
-				
-				<label> ID: </label>
-				<input type='number' name='id' required>
 
-				<label> Nom: </label>
-				<input type='text' name='nom' required>
-				<input type="submit" name="button" value="Supprimer le compte"> 
-			</div>
-		</div>
-	</div>
 
-<footer class="page-footer">    
+<?php 
+//récupérer les données venant de formulaire
+$ID = isset($_POST['ID'])? $_POST['ID'] : "";
+
+//identifier votre BDD
+$database = "piscine";
+
+//connectez-vous de votre BDD
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+if (isset($_POST['button'])) {
+	if ($db_found) {
+		$sql = "SELECT * FROM encheres";
+		$sql .= " WHERE IDobjet LIKE '%$ID%'";
+		$result = mysqli_query($db_handle, $sql);
+		if (mysqli_num_rows($result) != 0) {
+			?>
+			<form>
+				<table>
+					<tr> 
+						<td> ID </td>
+						<td> Prix max proposé par l'acheteur  </td>
+					</tr>
+				</table>
+
+			<?php
+			while ($data= mysqli_fetch_assoc($result)) {
+			?>
+			<form>
+				<table>
+					<tr> 
+						<td> <?php echo $data['IDAcheteur'];?> </td>
+						<td> <?php echo $data['PrixMax'];?>  </td>
+					</tr>
+					<?php
+				}
+				?>
+				</table>
+			</form>
+			<?php 
+		}
+	}
+}
+			 ?>
+				<br>
+				<p> rentrez l'ID de l'acheteur avec l'enchère la plus grande: </p>
+				<input type='number' name='idvainqueur' required><br>
+				<p> rentrez l'ID de l'acheteur avec la seconde enchère la plus grande: </p>
+				<input type='number' name='idsecond' required><br><br>
+				<input type="submit" name="button" value="Valider l'enchere ">
+				<br>
+				<br>
+			</form>
+
+			<footer class="page-footer">    
  	<div class="container">     
  		<div class="row">      
  			<div class="col-lg-8 col-md-8 col-sm-12">       
@@ -104,3 +117,6 @@ d'auteur: webDynamique.ece.fr</div>
 </footer> 
 </body> 
 </html>
+
+
+			
