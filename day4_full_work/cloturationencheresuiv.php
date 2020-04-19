@@ -71,7 +71,7 @@ if (isset($_POST['button'])) {
 			<form>
 				<table>
 					<tr> 
-						<td> <?php echo $data['IDAcheteur'];?> </td>
+						<td> <?php echo $data['IDacheteur'];?> </td>
 						<td> <?php echo $data['PrixMax'];?>  </td>
 					</tr>
 					<?php
@@ -117,6 +117,3 @@ d'auteur: webDynamique.ece.fr</div>
 </footer> 
 </body> 
 </html>
-
-
-			
