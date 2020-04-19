@@ -26,11 +26,11 @@ position: relative;
 	background-color: rgba(0, 0, 0, 0.4);}
 
 .description {
-	left: 50%;
+	left: 45%;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%, -55%);
-	text-align: center;
+	text-align: left;
 	
 	}
 .description h3{
