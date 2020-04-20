@@ -22,7 +22,7 @@
 
     <SCRIPT type="text/javascript">
 		function confirmation(){
-    return confirm("Êtes-vous sur de vouloir supprimer ce fournisseur ?");}
+    return confirm("Êtes-vous sur de vouloir supprimer cet objet ?");}
 </SCRIPT>
 </head>
 
