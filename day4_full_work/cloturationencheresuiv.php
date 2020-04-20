@@ -66,7 +66,7 @@ if (isset($_POST['button'])) {
 			<form>
 				<table>
 					<tr> 
-						<td> <?php echo $data['IDacheteur'];?> </td>
+						<td> <?php echo $data['IDAcheteur'];?> </td>
 						<td> <?php echo $data['PrixMax'];?>  </td>
 					</tr>
 					<?php
@@ -109,7 +109,7 @@ if (isset($_POST['button2'])) {
 		$sql .= " WHERE IDacheteur LIKE '%$idvainqueur%'";
 		$result = mysqli_query($db_handle, $sql);
 		$data = mysqli_fetch_assoc($result);
-		echo "le gagnant de l'enchere est le vendeur numero " . $data['IDacheteur'] . "<br>";
+		echo "le gagnant de l'enchere est le vendeur numero " . $data['IDAcheteur'] . "<br>";
 
 		$sql = "SELECT * FROM encheres";
 		$sql .= " WHERE IDacheteur LIKE '%$idsecond%'";
