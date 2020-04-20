@@ -90,7 +90,7 @@
 ?>
 				<tr>
 					<td><img src="<?php echo $data['Photo'];?>" Height="100"></td>
-					<td><?php echo $data['IDobjet'];?></td>
+					<td><?php echo $data['ID'];?></td>
 					<td><?php echo $data['Nom'];?></td>
 					<td><?php echo $data['Type'];?></td>
 					<td><?php echo $data['prix'];?></td>

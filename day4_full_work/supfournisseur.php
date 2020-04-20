@@ -35,7 +35,14 @@
 
 	</nav>
 
-<p> Voici la liste des fournisseurs actuelle : </p>
+	<header class="page-header header container-fluid">
+		<div class="ombre"></div>      
+ 		<div class="description">
+			<h1> Quel fournisseur voulez vous supprimer ?</h1>
+		</div>
+	</header>
+
+	<p> Voici la liste des fournisseurs actuelle : </p>
 <?php
 	try		//Connection a la bdd
 	{
@@ -58,13 +65,6 @@
 		echo '</table></div></center>';
             $pdo = null;
 ?>
-
-	<header class="page-header header container-fluid">
-		<div class="ombre"></div>      
- 		<div class="description">
-			<h1> Quel fournisseur voulez vous supprimer ?</h1>
-		</div>
-	</header>
 		
 	<div class="container features"> 
  		<div class="row">     

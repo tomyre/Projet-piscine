@@ -43,7 +43,14 @@
 
 	</nav>
 
-	<p> Voici la liste des objets dans la base de données : </p> 
+<header class="page-header header container-fluid">
+	<div class="ombre"></div>      
+ 		<div class="description">
+			<h1>Quel objet voulez vous supprimer( rentrez son ID et son nom)</h1>
+		</div>
+</header>
+
+<p> Voici la liste des objets dans la base de données : </p> 
 <?php
 	try		//Connection a la bdd
 	{
@@ -61,20 +68,13 @@
         echo '<th class="thliste">Categorie</th>';
         while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
 			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
+            echo '<td class="tdliste">' . $donnees['IDobjet'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
 	        echo '<td class="tdliste">' . $donnees['Nom'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
 	        echo '<td class="tdliste">' . $donnees["Categorie"] . ' &nbsp  &nbsp &nbsp  &nbsp' . '<td>';
             }
 		echo '</table></div></center>';
             $pdo = null;
          ?>
-
-<header class="page-header header container-fluid">
-	<div class="ombre"></div>      
- 		<div class="description">
-			<h1>Quel objet voulez vous supprimer( rentrez son ID et son nom)</h1>
-		</div>
-</header>
 	
 	<div class="container features"> 
  		<div class="row">     
