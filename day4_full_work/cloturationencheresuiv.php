@@ -80,16 +80,50 @@ if (isset($_POST['button'])) {
 }
 			 ?>
 				<br>
-				<form name="formulaire" method="post" action="cloturationencheresuiv2.php">
+				<form name="formulaire" method="post" action="cloturationencheresuiv.php">
  				<h1><u><b>Rentrez l'id de l'enchère que vous voulez conclure: </b></u></h1><br>				
 				<p> rentrez l'ID de l'acheteur avec l'enchère la plus grande: </p>
 				<input type='number' name='idvainqueur' required><br>
 				<p> rentrez l'ID de l'acheteur avec la seconde enchère la plus grande: </p>
 				<input type='number' name='idsecond' required><br><br>
-				<input type="submit" name="button" value="Valider l'enchere">
+				<input type="submit" name="button2" value="Valider l'enchere">
 				<br>
 				<br>
 				</form>
+				<?php
+//récupérer les données venant de formulaire
+$idvainqueur = isset($_POST['idvainqueur'])? $_POST['idvainqueur'] : "";
+$idsecond = isset($_POST['idsecond'])? $_POST['idsecond'] : "";
+$ID = isset($_POST['ID'])? $_POST['ID'] : "";
+
+//identifier votre BDD
+$database = "piscine";
+
+//connectez-vous de votre BDD
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+
+if (isset($_POST['button2'])) {
+	if ($db_found) {
+		$sql = "SELECT * FROM encheres";
+		$sql .= " WHERE IDacheteur LIKE '%$idvainqueur%'";
+		$result = mysqli_query($db_handle, $sql);
+		$data = mysqli_fetch_assoc($result);
+		echo "le gagnant de l'enchere est le vendeur numero " . $data['IDacheteur'] . "<br>";
+
+		$sql = "SELECT * FROM encheres";
+		$sql .= " WHERE IDacheteur LIKE '%$idsecond%'";
+		$result = mysqli_query($db_handle, $sql);
+		$data= mysqli_fetch_assoc($result) ;
+		$prix= $data['PrixMax']+1;
+		echo "L'enchere lui revient pour la modique somme de " . $prix . " euros, felicitation !<br>" ;
+
+		$sql = "SELECT * FROM article WHERE IDobjet LIKE '%$ID%' INSERT INTO (idassocie,prix) VALUES ('$idvainqueur','$prix')";
+		$result = mysqli_query($db_handle, $sql);
+		echo "le bien lui à été transmis et ajouté à son panier avec le montant de l'enchere";
+	}
+}
+?>
 
 			<footer class="page-footer">    
  	<div class="container">     
