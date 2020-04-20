@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 19 avr. 2020 à 16:33
+-- Généré le :  lun. 20 avr. 2020 à 15:04
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -102,36 +102,11 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`ID`, `IDobjet`, `idassocie`, `idvendeur`, `Nom`, `Type`, `Categorie`, `Categorie2`, `prix`, `Photo`, `description`, `video`) VALUES
-(6, 0, 0, 0, 'malette LV', 'VIP', 'Offre', 'Enchere', 12, 'er', 'ze\"r', ''),
+(6, 0, 0, 0, 'malette LV', 'VIP', 'Offre', 'Enchere', 25000, 'malette LV.jpeg', 'malette Louis Vuitton de 1850.', ''),
 (20, 0, 1, 0, 'Rideaux', 'musee', 'Acheter', 'Offre', 200, 'rideaux.jpg', 'none', ''),
-(15, 0, 1, 0, 'Violon', 'VIP', 'Enchere', 'Acheter', 500, 'njfvf.png', 'stradivarius de qualité', ''),
-(2, 0, 6, 0, 'Lettre', 'musee', 'Offre', '', 50, 'dkoz.png', 'none', ''),
-(7, 0, 6, 0, 'cle', 'ferraille', 'Acheter', '', 50, 'cle.jpg', 'none', ''),
-(91, 2, 0, 0, 'vgty', 'ferraille', 'Acheter', '', 23, 'IMG_20191206_131923.jpg', 'cgy', '');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `comptebancaire`
---
-
-DROP TABLE IF EXISTS `comptebancaire`;
-CREATE TABLE IF NOT EXISTS `comptebancaire` (
-  `ID` int(10) NOT NULL AUTO_INCREMENT,
-  `type de carte` varchar(255) NOT NULL,
-  `Numero carte` varchar(22) NOT NULL,
-  `Nom sur carte` varchar(255) NOT NULL,
-  `Date d'expiration` varchar(255) NOT NULL,
-  `Code de securité` int(4) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `comptebancaire`
---
-
-INSERT INTO `comptebancaire` (`ID`, `type de carte`, `Numero carte`, `Nom sur carte`, `Date d'expiration`, `Code de securité`) VALUES
-(1, 'Mastercard', '1234 5678 1234 5678', 'Larnicol', '02/21', 987);
+(15, 0, 1, 0, 'Violon', 'VIP', 'Enchere', 'Acheter', 10000, 'violon.jpg', 'stradivarius de 1920.', ''),
+(2, 0, 6, 0, 'Lettre', 'musee', 'Enchere', '', 180000, 'lettre.jpg', 'Lettre d\'adieu de Charles Baudelaire.', ''),
+(7, 0, 6, 0, 'Cle', 'ferraille', 'Acheter', '', 50, 'cle.jpg', 'Cle en bronze qui ete utilise pour ouvrir un des bureau de Louis XVI.', '');
 
 -- --------------------------------------------------------
 
@@ -196,7 +171,6 @@ CREATE TABLE IF NOT EXISTS `vendeur` (
 
 INSERT INTO `vendeur` (`ID`, `Nom`, `Prenom`, `email`, `MDP`, `photo`, `fond`) VALUES
 (20, 'larnicol', 'tom', 'tom191298@gmail.com', 'tomyre191298', 'ef', ''),
-(22, 'ZIEGLER', 'Amandine', 'amandine.ziegler@edu.ece.fr', 'amEce', 'IMG_20191206_131923.jpg', ''),
 (23, 'ZIEGLER', 'Amandine', 'azglr06@gmail.com', 'eceEbay', 'IMG_20191206_131923.jpg', '');
 COMMIT;
 
