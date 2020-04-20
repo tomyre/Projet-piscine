@@ -22,13 +22,13 @@
 
     <SCRIPT type="text/javascript">
 		function confirmation(){
-    return confirm("Êtes-vous sur de vouloir supprimer ce fournisseur ?");}
+    return confirm("Êtes-vous sur de vouloir supprimer cet objet ?");}
 </SCRIPT>
 </head>
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
@@ -36,15 +36,21 @@
 
 		<div class="collapse navbar-collapse" id="main-navigation">     
 		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
-			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
-			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
-			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
+			<li class="nav-item"><a class="nav-link" href="#.html">Mon compte</a></li> 
+			<li class="nav-item"><a class="nav-link" href="page_de_presentation.html">Déconnexion</a></li>
 		</ul>    
-		</div>  
+		</div>   
+
 	</nav>
 
-	<p> Voici la liste des objets feraille et tresor dans la base de données : </p> 
+<header class="page-header header container-fluid">
+	<div class="ombre"></div>      
+ 		<div class="description">
+			<h1>Quel objet voulez vous supprimer( rentrez son ID et son nom)</h1>
+		</div>
+</header>
+
+<p> Voici la liste des objets dans la base de données : </p> 
 <?php
 	try		//Connection a la bdd
 	{
@@ -62,20 +68,13 @@
         echo '<th class="thliste">Categorie</th>';
         while($donnees = $reponse->fetch()) {	// Renvoit les valeurs de la bdd
 			echo '<tr>';
-            echo '<td class="tdliste">' . $donnees['ID'] . '</td>';
-	        echo '<td class="tdliste">' . $donnees['Nom'] . '</td>';
-	        echo '<td class="tdliste">' . $donnees["Categorie"] . '<td>';
+            echo '<td class="tdliste">' . $donnees['IDobjet'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
+	        echo '<td class="tdliste">' . $donnees['Nom'] . ' &nbsp  &nbsp &nbsp  &nbsp' . '</td>';
+	        echo '<td class="tdliste">' . $donnees["Categorie"] . ' &nbsp  &nbsp &nbsp  &nbsp' . '<td>';
             }
 		echo '</table></div></center>';
             $pdo = null;
          ?>
-
-<header class="page-header header container-fluid">
-	<div class="ombre"></div>      
- 		<div class="description">
-			<h1>Quel objet voulez vous supprimer( rentrez son ID et son nom)</h1>
-		</div>
-</header>
 	
 	<div class="container features"> 
  		<div class="row">     
