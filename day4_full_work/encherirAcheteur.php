@@ -89,8 +89,8 @@
 
 		<tr>
 			
-			<td><img src="<?php echo $data['Photo'];?>"></td>
-			<td><?php echo $data['ID'];?></td>
+			<td><img src="<?php echo $data['Photo'];?>" Height="100"></td>
+			<td><?php echo $data['IDobjet'];?></td>
 			<td><?php echo $data['Nom'];?></td>
 			<td><button class="btn btn-outline-secondary btn-lg"><a href="encherir.html">Enchérir</a></button></td><br>
 		</tr>
