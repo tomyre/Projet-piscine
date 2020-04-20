@@ -27,23 +27,22 @@
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="page_de_presentation.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
 		</button>   
 
-		<div class="collapse navbar-collapse" id="main-navigation">     
-		<ul class="navbar-nav">      
-			<li class="nav-item"><a class="nav-link" href="categories.html">Catégories</a></li>      
-			<li class="nav-item"><a class="nav-link" href="achat.html">Achat</a></li>      
-			<li class="nav-item"><a class="nav-link" href="vendre.html">Vendre</a></li>         
-			<li class="nav-item"><a class="nav-link" href="panier.html"><img src="panier-vert.jpg" height="25px"></a></li>
-		</ul>    
-		</div>  
 	</nav>
 
-<p> Voici la liste des fournisseurs actuelle : </p>
+	<header class="page-header header container-fluid">
+		<div class="ombre"></div>      
+ 		<div class="description">
+			<h1> Quel fournisseur voulez vous supprimer ?</h1>
+		</div>
+	</header>
+
+	<p> Voici la liste des fournisseurs actuelle : </p>
 <?php
 	try		//Connection a la bdd
 	{
@@ -66,13 +65,6 @@
 		echo '</table></div></center>';
             $pdo = null;
 ?>
-
-	<header class="page-header header container-fluid">
-		<div class="ombre"></div>      
- 		<div class="description">
-			<h1> Quel fournisseur voulez vous supprimer ?</h1>
-		</div>
-	</header>
 		
 	<div class="container features"> 
  		<div class="row">     
