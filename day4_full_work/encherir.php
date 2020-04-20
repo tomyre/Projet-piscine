@@ -97,7 +97,7 @@ if (isset($_POST['button'])) {
 		<!--superposition txt/background-->
 		<div class="overlay"></div>
 		<div class="description">
-				<h3><b>Cliquez <u><a href="achatAcheteur.html">ici</a></u> pour retourner au menu Achats</b></h3>
+				<h3><b>Cliquez <u><a href="enchères.html">ici</a></u> pour retourner au menu des enchères</b></h3>
 			
 		</div>
 	</header>
