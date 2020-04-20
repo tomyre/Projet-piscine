@@ -79,6 +79,7 @@
            	<th>Photo &nbsp &nbsp &nbsp &nbsp</th>
            	<th>ID &nbsp &nbsp &nbsp &nbsp</th>
            	<th>Nom &nbsp &nbsp &nbsp &nbsp</th>
+		<th>Prix de départ de l'enchère &nbsp &nbsp &nbsp &nbsp</th>
            
            	
        	</tr>
@@ -92,6 +93,7 @@
 			<td><img src="<?php echo $data['Photo'];?>" Height="100"></td>
 			<td><?php echo $data['IDobjet'];?></td>
 			<td><?php echo $data['Nom'];?></td>
+			<td><?php echo $data['prix'];?></td>
 			<td><button class="btn btn-outline-secondary btn-lg"><a href="encherir.html">Enchérir</a></button></td><br>
 		</tr>
 	<?php
