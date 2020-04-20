@@ -12,7 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	
-	<link rel="stylesheet" type="text/css" href="supobjet.css"> 
+	<link rel="stylesheet" type="text/css" href="pagevendeur.css"> 
 	
 	<script type="text/javascript">   
 	$(document).ready(function(){     
@@ -42,7 +42,17 @@
 		</div>  
 	</nav>
 
-	<p> Voici la liste des objets feraille et tresor dans la base de données : </p> 
+<header class="page-header header container-fluid">
+	<div class="ombre"></div>      
+ 		<div class="description">
+			<h1>Quel objet voulez vous supprimer( rentrez son ID et son nom)</h1>
+		</div>
+</header>
+	
+	<div class="container features"> 
+ 		<div class="row">     
+ 			<p><u> Voici la liste des objets dans la base de données :</u> </p> 
+<br>
 <?php
 	try		//Connection a la bdd
 	{
@@ -67,16 +77,6 @@
 		echo '</table></div></center>';
             $pdo = null;
          ?>
-
-<header class="page-header header container-fluid">
-	<div class="ombre"></div>      
- 		<div class="description">
-			<h1>Quel objet voulez vous supprimer( rentrez son ID et son nom)</h1>
-		</div>
-</header>
-	
-	<div class="container features"> 
- 		<div class="row">     
  			<div class="col-lg-12 col-md-12 col-sm-12">
  			<h1><u><b>Supression d'un objet dans la base de données</b></u></h1><br> 
 

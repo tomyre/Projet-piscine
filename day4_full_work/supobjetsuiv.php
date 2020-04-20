@@ -10,7 +10,7 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="supobjetsuiv.css"> 
+	<link rel="stylesheet" type="text/css" href="pagevendeur.css"> 
 	
 	<script type="text/javascript">   
 	$(document).ready(function(){     
@@ -21,7 +21,7 @@
 
 <body>
 	<nav class="navbar navbar-expand-md">    
-		<a class="navbar-brand" href="pageadmin.html"><img src="logo.jpg" height="25px"></a>    
+		<a class="navbar-brand" href="pagevendeur.html"><img src="logo.jpg" height="25px"></a>    
 		<button class="navbar-toggler navbar-dark" type="button"     
 		data-toggle="collapse" data-target="#main-navigation">     
 		<span class="navbar-toggler-icon"></span>    
@@ -45,7 +45,7 @@ $db_found = mysqli_select_db($db_handle, $database);
 if (isset($_POST['button'])) {
 	if ($db_found) {
 			$sql = "SELECT * FROM article";
-			$sql .= " WHERE Nom LIKE '%$nom%' AND ID LIKE '%$ID%'";
+			$sql .= " WHERE Nom LIKE '%$nom%' AND IDobjet LIKE '%$ID%'";
 			$result = mysqli_query($db_handle, $sql);
 			// si le nombres de colonne de mon resultat est different de 0 (= il a trouvé un compte) alors la personne a deja un compte donc je l'informe de se connceter directement via la page connexion 
 			if (mysqli_num_rows($result) == 0) {
@@ -70,9 +70,9 @@ if (isset($_POST['button'])) {
 <header class="page-header header container-fluid">
 		<div class="ombre"></div>      
  			<div class="description">
- 			<h3>cliquez <u><b><a href="supobject.php">ici</a></b></u> pour etre redirigé vers la page precedente</h3>
+ 			<h3>Cliquez <u><b><a href="supobjectvendeur.php">ici</a></b></u> pour etre redirigé vers la page precedente</h1>
 			<br>
-			<h3>cliquez <u><b><a href="pageadmin.html">ici</a></b></u> pour etre redirigé vers la page principal</h3><br>
+			<h3>Cliquez <u><b><a href="pagevendeur.html">ici</a></b></u> pour etre redirigé vers la page principal</h1><br>
 		</div>
 	</header>
 
